@@ -1,0 +1,26 @@
+version: 2
+workflows:
+  version: 2
+  default_workflow:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - master
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8.11
+
+    working_directory: ~/code
+
+    steps:
+      - checkout
+
+      - run: |
+          sudo apt install python-dev python-pip
+          sudo pip install awscli
+
+      - run: npm install
+      - run: npm run build
