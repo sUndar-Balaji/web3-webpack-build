@@ -23,7 +23,7 @@ jobs:
           sudo pip install awscli
 
       - run: echo $(npm config get prefix)
-      - run: sudo chown -R $(whoami) $(npm config get prefix)/
+      - run: sudo chown -R $(whoami) /root/.npm/_cacache
       - run: npm config set unsafe-perm true 
       - run: sudo npm install
       - run: npm run build
