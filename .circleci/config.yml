@@ -23,5 +23,5 @@ jobs:
           sudo pip install awscli
 
       - run: npm config set unsafe-perm true 
-      - run: npm install
+      - run: sudo npm install
       - run: npm run build
